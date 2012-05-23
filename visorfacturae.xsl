@@ -266,6 +266,7 @@ table td {
 	margin:0.2em 0.2em 1em;
 }
 </style>
+
 	</head>   
 	<xsl:apply-templates select="//m:Facturae"/>
 </html>
@@ -288,7 +289,7 @@ table td {
 		</xsl:choose>
 
 	</div>		
-<!-- ***********************************************CABECERA*********************************************************************************-->
+<!-- **********************************************CABECERA*********************************************************************************-->
     <div id="horizontal">
 		<p class="titulo">Cabecera de la factura </p>
 		<ul>
@@ -670,7 +671,7 @@ table td {
 
 </div> <!-- todo -->
 <!--<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/es/"><img alt="Licencia de Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>-->
-<div id="pie"><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type">Visor Facturae v0.90</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.conocimientoytecnologia.org" property="cc:attributionName" rel="cc:attributionURL">ACYT</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/es/">Creative Commons Attribution-NonCommercial 3.0 Spain License</a>.</div>
+<div id="pie"><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type">Visor Facturae v0.91</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.conocimientoytecnologia.org" property="cc:attributionName" rel="cc:attributionURL">ACYT</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/es/">Creative Commons Attribution-NonCommercial 3.0 Spain License</a>.</div>
 </body>
 </xsl:template>
 <!-- ********************************************************************************************************************************-->
