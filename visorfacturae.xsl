@@ -5,9 +5,8 @@
 <xsl:template match="/">  
 <html>
 	<head>        
-    <title>Visor Facturae</title>
+    <title>Visor Facturae v.0.91</title>
 <style type="text/css" media="screen, print, handheld">
-
 body, html {
 	margin: 0em;
 	padding: 0em;
@@ -267,6 +266,7 @@ table td {
 	margin:0.2em 0.2em 1em;
 }
 </style>
+
 	</head>   
 	<xsl:apply-templates select="//m:Facturae"/>
 </html>
@@ -289,7 +289,7 @@ table td {
 		</xsl:choose>
 
 	</div>		
-<!-- ***********************************************CABECERA*********************************************************************************-->
+<!-- **********************************************CABECERA*********************************************************************************-->
     <div id="horizontal">
 		<p class="titulo">Cabecera de la factura </p>
 		<ul>
@@ -299,7 +299,7 @@ table td {
 				<span class="nombre">  Versión Facturae: </span><xsl:value-of select="FileHeader/SchemaVersion"/>
 				<span class="nombre">  Fecha de expedición: </span><xsl:value-of select="substring(Invoices/Invoice/InvoiceIssueData/IssueDate,9,2)"/>-<xsl:value-of select="substring(Invoices/Invoice/InvoiceIssueData/IssueDate,6,2)"/>-<xsl:value-of select="substring(Invoices/Invoice/InvoiceIssueData/IssueDate,1,4)"/>
 				<xsl:if test="Invoices/Invoice/InvoiceIssueData/PlaceOfIssue!=&quot;&quot;"> 
-				<span class="nombre">  Lugar de expedición:</span><xsl:value-of select="Invoices/Invoice/InvoiceIssueData/PlaceOfIssue/PostCode"/>-<xsl:value-of select="InvoiceIssueData/PlaceOfIssue/PlaceOfIssueDescription"/>
+				<span class="nombre">  Lugar de expedición:</span><xsl:value-of select="Invoices/Invoice/InvoiceIssueData/PlaceOfIssue/PostCode"/>-<xsl:value-of select="InvoiceIssueData/PlaceOfIssue/PlaceOfIssueDescription" disable-output-escaping="yes"/>
 				</xsl:if>  
 				<span class="nombre">  Fecha de operación: </span><xsl:value-of select="substring(Invoices/Invoice/InvoiceIssueData/OperationDate,9,2)"/>-<xsl:value-of select="substring(Invoices/Invoice/InvoiceIssueData/OperationDate,6,2)"/>-<xsl:value-of select="substring(Invoices/Invoice/InvoiceIssueData/OperationDate,1,4)"/>
 				<span class="nombre">  Moneda de la operación: </span> <xsl:value-of select="Invoices/Invoice/InvoiceIssueData/InvoiceCurrencyCode"/>
@@ -336,8 +336,8 @@ table td {
 				</xsl:if>
 				<span class="nombre">  Número:</span> <xsl:value-of select="Invoices/Invoice/InvoiceHeader/Corrective/InvoiceNumber"/>
 
-				<span class="nombre">  Motivo: </span> <xsl:value-of select="Invoices/Invoice/InvoiceHeader/Corrective/ReasonCode"/> - <xsl:value-of select="Invoices/Invoice/InvoiceHeader/Corrective/ReasonDescription"/>
-				<span class="nombre">  Criterio: </span> <xsl:value-of select="Invoices/Invoice/InvoiceHeader/Corrective/CorrectionMethod"/> - <xsl:value-of select="Invoices/Invoice/InvoiceHeader/Corrective/CorrectionMethodDescription"/>
+				<span class="nombre">  Motivo: </span> <xsl:value-of select="Invoices/Invoice/InvoiceHeader/Corrective/ReasonCode"/> - <xsl:value-of select="Invoices/Invoice/InvoiceHeader/Corrective/ReasonDescription" disable-output-escaping="yes"/>
+				<span class="nombre">  Criterio: </span> <xsl:value-of select="Invoices/Invoice/InvoiceHeader/Corrective/CorrectionMethod"/> - <xsl:value-of select="Invoices/Invoice/InvoiceHeader/Corrective/CorrectionMethodDescription" disable-output-escaping="yes"/>
 				
 				<li><span class="nombre">Período impositivo desde:</span>
 				<xsl:value-of select="substring(Invoices/Invoice/InvoiceHeader/Corrective/TaxPeriod/StartDate,9,2)"/>-<xsl:value-of select="substring(Invoices/Invoice/InvoiceHeader/Corrective/TaxPeriod/StartDate,6,2)"/>-<xsl:value-of select="substring(Invoices/Invoice/InvoiceHeader/Corrective/TaxPeriod/StartDate,1,4)"/>
@@ -498,7 +498,7 @@ table td {
 			<xsl:for-each select="Invoices/Invoice/Items/InvoiceLine">
 			<tr> 
 				<td> <ul>
-					<xsl:value-of select="ItemDescription"/>
+					<xsl:value-of select="ItemDescription" disable-output-escaping="yes"/>
 					<xsl:if test="FileHeader/SchemaVersion=&quot;3.1&quot;">	
 						<xsl:if test="PurchaseOrderReference!=&quot;&quot;">
 							<li><span class="nombre">Orden de pedido:</span> <xsl:value-of select="PurchaseOrderReference"/></li>
@@ -671,7 +671,7 @@ table td {
 
 </div> <!-- todo -->
 <!--<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/es/"><img alt="Licencia de Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>-->
-<div id="pie"><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type">Visor Facturae v0.90</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.conocimientoytecnologia.org" property="cc:attributionName" rel="cc:attributionURL">ACYT</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/es/">Creative Commons Attribution-NonCommercial 3.0 Spain License</a>.</div>
+<div id="pie"><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type">Visor Facturae v0.91</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.conocimientoytecnologia.org" property="cc:attributionName" rel="cc:attributionURL">ACYT</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/es/">Creative Commons Attribution-NonCommercial 3.0 Spain License</a>.</div>
 </body>
 </xsl:template>
 <!-- ********************************************************************************************************************************-->
@@ -706,7 +706,7 @@ table td {
 			</xsl:if>
 
 			<xsl:if test="$param1/AdditionalContactDetails!=&quot;&quot;">
-				<li><span class="nombre">Otros:</span> <xsl:value-of select="$param1/AdditionalContactDetails"/></li>
+				<li><span class="nombre">Otros:</span> <xsl:value-of select="$param1/AdditionalContactDetails" disable-output-escaping="yes"/></li>
 			</xsl:if>
 		</ul>
 	</xsl:if>
@@ -718,7 +718,7 @@ table td {
 			<xsl:if test="$param1!=&quot;&quot;">
 			<li><span class="nombre">Dirección en España:</span></li>
 			<ul>
-				<li><span class="nombre2"><xsl:value-of select="$param1/Address"/></span></li>
+				<li><span class="nombre2"><xsl:value-of select="$param1/Address" disable-output-escaping="yes"/></span></li>
 				<li><span class="nombre2"><xsl:value-of select="$param1/PostCode"/> 
 				-<xsl:value-of select="$param1/Town"/>
 				(<xsl:value-of select="$param1/Province"/>)
@@ -728,7 +728,7 @@ table td {
 			<xsl:if test="$param2/OverseasAddress!=&quot;&quot;">
 			<li><span class="nombre">Dirección en el extranjero:</span></li>
 			<ul>
-				<li><span class="nombre2"><xsl:value-of select="$param2/Address"/></span></li>
+				<li><span class="nombre2"><xsl:value-of select="$param2/Address" disable-output-escaping="yes"/></span></li>
 				<li><span class="nombre2"><xsl:value-of select="$param2/PostCodeAndTown"/> 
 				(<xsl:value-of select="$param2/Province"/>)
 				-<xsl:value-of select="$param2/CountryCode"/></span></li>
@@ -739,15 +739,15 @@ table td {
 <xsl:template name="identificacion">       
 <xsl:param name='param1' /> 
 			<xsl:if test="$param1/LegalEntity!=&quot;&quot;">
-			<li><span class="nombre">Razón social:</span> <xsl:value-of select="$param1/LegalEntity/CorporateName"/></li>
+			<li><span class="nombre">Razón social:</span> <xsl:value-of select="$param1/LegalEntity/CorporateName" disable-output-escaping="yes"/></li>
 			</xsl:if>
 			<xsl:if test="$param1/LegalEntity/TradeName!=&quot;&quot;">
-			<li><span class="nombre">Nombre comercial:</span> <xsl:value-of select="$param1/LegalEntityy/TradeName"/></li>
+			<li><span class="nombre">Nombre comercial:</span> <xsl:value-of select="$param1/LegalEntityy/TradeName" disable-output-escaping="yes"/></li>
 			</xsl:if>         
 			<xsl:if test="$param1/Individual!=&quot;&quot;">
-			<li><span class="nombre">Nombre:</span> <xsl:value-of select="$param1/Individual/Name"/></li>
-			<li><span class="nombre">Primer  apellido:</span> <xsl:value-of select="$param1/Individual/FirstSurname"/></li>
-			<li><span class="nombre">Segundo apellido:</span> <xsl:value-of select="$param1/Individual/SecondSurname"/></li>
+			<li><span class="nombre">Nombre:</span> <xsl:value-of select="$param1/Individual/Name" disable-output-escaping="yes"/></li>
+			<li><span class="nombre">Primer  apellido:</span> <xsl:value-of select="$param1/Individual/FirstSurname" disable-output-escaping="yes"/></li>
+			<li><span class="nombre">Segundo apellido:</span> <xsl:value-of select="$param1/Individual/SecondSurname" disable-output-escaping="yes"/></li>
 			</xsl:if>
 			<li><span class="nombre">Identificación fiscal:</span></li>
 			<ul>
@@ -784,7 +784,7 @@ table td {
 			<li><span class="nombre">Folio:</span> <xsl:value-of select="$param1/RegistrationData/Folio"/></li>
 			<li><span class="nombre">Sección:</span> <xsl:value-of select="$param1/RegistrationData/Section"/></li>
 			<li><span class="nombre">Tomo:</span><xsl:value-of select="$param1/RegistrationData/Volume"/></li>
-			<li><span class="nombre">Otros:</span><xsl:value-of select="$param1/RegistrationData/AdditionalRegistrationData"/></li>
+			<li><span class="nombre">Otros:</span><xsl:value-of select="$param1/RegistrationData/AdditionalRegistrationData" disable-output-escaping="yes"/></li>
 		</ul>
 	</xsl:if>				
 </xsl:template>
@@ -859,7 +859,7 @@ table td {
 <!-- ********************************************************************************************************************************-->
 <xsl:template name="importes">
 <xsl:param name='param1' /> 
-				Concepto: <xsl:value-of select="concat($param1,'Reason')"/>
+				Concepto: <xsl:value-of select="concat($param1,'Reason')" disable-output-escaping="yes"/>
 				<xsl:if test="concat($param1,'Rate')!=&quot;&quot;">
 					Tipo: <xsl:value-of select="format-number(concat($param1,'Rate'),'#.##0,0000')"/>
 				</xsl:if>
@@ -946,12 +946,12 @@ table td {
 						<li><span class="nombre">CIF:</span>
 						<xsl:value-of select="substring-before(substring-after(.,'- CIF'),',')"/></li>
 						<li><span class="nombre">Nombre:</span>
-						<xsl:value-of select="substring-before(substring-after(.,'CN='),',')"/></li>
+						<xsl:value-of select="substring-before(substring-after(.,'CN='),',')" disable-output-escaping="yes"/></li>
 						<li><span class="nombre">Descripción:</span>
-						<xsl:value-of select="substring-before(substring-after(.,'O='),',')"/></li>
+						<xsl:value-of select="substring-before(substring-after(.,'O='),',')" disable-output-escaping="yes"/></li>
 						<li><span class="nombre">Dirección:</span>
-						<xsl:value-of select="substring-before(substring-after(.,',L='),',')"/> 
-						(<xsl:value-of select="substring-before(substring-after(.,',ST='),',')"/> )
+						<xsl:value-of select="substring-before(substring-after(.,',L='),',')" disable-output-escaping="yes"/> 
+						(<xsl:value-of select="substring-before(substring-after(.,',ST='),',')" disable-output-escaping="yes"/> )
 						</li>
 					</xsl:if>
 				</xsl:for-each>
