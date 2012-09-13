@@ -267,8 +267,18 @@ table td {
 }
 </style>
 
-	</head>   
-	<xsl:apply-templates select="//m:Facturae"/>
+	</head>
+		<xsl:variable name="formatofra">
+			<xsl:choose>
+				<xsl:when test="m:Facturae/FileHeader/SchemaVersion!=''">Facturae <xsl:value-of select="m:Facturae/FileHeader/SchemaVersion"/></xsl:when>
+				<xsl:otherwise>Desconocido</xsl:otherwise>
+			</xsl:choose>	
+		</xsl:variable>
+		<center><span class="nombre">Formato de factura: </span><xsl:value-of select="$formatofra"/></center>
+		<xsl:if test="m:Facturae/FileHeader/SchemaVersion">
+			<xsl:apply-templates select="//m:Facturae"/>
+		</xsl:if>
+
 </html>
 </xsl:template>
 <!-- ***********************************************PLANTILLA DE FACTURA*********************************************************************************-->
@@ -296,7 +306,7 @@ table td {
 			<!-- DATOS DE IDENTIFICATIVOS -->
 			<li><span class="nombre">Serie: </span><xsl:if test="Invoices/Invoice/InvoiceHeader/InvoiceSeriesCode!=&quot;&quot;"><xsl:value-of select="Invoices/Invoice/InvoiceHeader/InvoiceSeriesCode"/>			</xsl:if>
 				<span class="nombre">  Número: </span> <xsl:value-of select="Invoices/Invoice/InvoiceHeader/InvoiceNumber"/>
-				<span class="nombre">  Versión Facturae: </span><xsl:value-of select="FileHeader/SchemaVersion"/>
+<!--				<span class="nombre">  Versión Facturae: </span><xsl:value-of select="FileHeader/SchemaVersion"/>-->
 				<span class="nombre">  Fecha de expedición: </span><xsl:value-of select="substring(Invoices/Invoice/InvoiceIssueData/IssueDate,9,2)"/>-<xsl:value-of select="substring(Invoices/Invoice/InvoiceIssueData/IssueDate,6,2)"/>-<xsl:value-of select="substring(Invoices/Invoice/InvoiceIssueData/IssueDate,1,4)"/>
 				<xsl:if test="Invoices/Invoice/InvoiceIssueData/PlaceOfIssue!=&quot;&quot;"> 
 				<span class="nombre">  Lugar de expedición:</span><xsl:value-of select="Invoices/Invoice/InvoiceIssueData/PlaceOfIssue/PostCode"/>-<xsl:value-of select="InvoiceIssueData/PlaceOfIssue/PlaceOfIssueDescription" disable-output-escaping="yes"/>
