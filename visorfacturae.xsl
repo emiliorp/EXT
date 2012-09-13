@@ -4,8 +4,9 @@
 <xsl:decimal-format grouping-separator="." decimal-separator=","/>
 <xsl:template match="/">  
 <html>
-	<head>        
-    <title>Visor Facturae v.0.91</title>
+	<head>
+	<xsl:variable name="versionvisor"><xsl:text>0.92</xsl:text></xsl:variable>
+    <title>Visor Facturae v.<xsl:value-of select="$versionvisor"/></title>
 <style type="text/css" media="screen, print, handheld">
 body, html {
 	margin: 0em;
@@ -360,8 +361,6 @@ table td {
 			<xsl:when test="Invoices/Invoice/InvoiceHeader/InvoiceClass=&quot;CR&quot;">COPIA RECTIFICATIVA</xsl:when>
 			<xsl:when test="Invoices/Invoice/InvoiceHeader/InvoiceClass=&quot;CC&quot;">COPIA RECAPITULACION</xsl:when>
 			<xsl:otherwise><xsl:value-of select="Invoices/Invoice/InvoiceHeader/InvoiceClass"/></xsl:otherwise> </xsl:choose></li>	
-			<!-- DATOS DE EMISIÓN -->
-			<!-- <span class="nombre">Versión Visor:</span>0.9 -->
 		</ul>
     </div>		
     <div id="actores">
@@ -681,7 +680,7 @@ table td {
 
 </div> <!-- todo -->
 <!--<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/es/"><img alt="Licencia de Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>-->
-<div id="pie"><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type">Visor Facturae v0.91</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.conocimientoytecnologia.org" property="cc:attributionName" rel="cc:attributionURL">ACYT</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/es/">Creative Commons Attribution-NonCommercial 3.0 Spain License</a>.</div>
+<div id="pie"><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type">Visor Facturae</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.larioja.org" property="cc:attributionName" rel="cc:attributionURL">DGTIC</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/es/">Creative Commons Attribution-NonCommercial 3.0 Spain License</a>.</div>
 </body>
 </xsl:template>
 <!-- ********************************************************************************************************************************-->
