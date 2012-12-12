@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:m="http://www.facturae.es/Facturae/2007/v3.1/Facturae" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:tns="http://schemas.xmlsoap.org/soap/envelope/">
 <xsl:output method="html" indent="yes"/>
 <xsl:decimal-format grouping-separator="." decimal-separator=","/>
@@ -8,73 +8,13 @@
 	<xsl:variable name="versionvisor"><xsl:text>0.92</xsl:text></xsl:variable>
     <title>Visor Facturae v.<xsl:value-of select="$versionvisor"/></title>
 <style type="text/css" media="screen, print, handheld">
-body, html {
-	margin: 0em;
-	padding: 0em;
-	background-color: #ffffff;
-	font-size: 12px;
-	line-height:18px;
-}
-sup {
-	font-size: 0.6em;
-}
-p {
-	margin: 0em;
-	padding: 0em;
-}
-img {
-	border:none;
-}
-ul {
-
-	list-style-type: none;
-}
-li {
-
-	color:#000033;
-}
-table {
-	border:1px solid #333333;
-	border-collapse:collapse;
-	empty-cells:hide;
-	margin-bottom:1.5em;
-	margin-top:0.2em;
-	width:99%;
-}
-
-table caption {
-	font-size: 1.1em;
-	font-weight: bold;
-	text-align: center;
-	background-color: #5F717F;
-	padding: 0.1em;
-	color: #FFFFFF;
-	margin-top: 1em;
-	margin:auto;
-	border: 1px solid #4F4F4F;
-
-}
-table th {
-	padding-left: 0.3em;
-	text-align: left;
-	margin:auto;
-	border: 1px solid #4F4F4F;
-	background-color: #CFCFCF;	
-}
-table td {
-	text-align:left;
-	border: 1px solid #4F4F4F;
-	padding: 0.3em;
-	margin:auto;
-}
-
-#todo {
-	margin-right: auto;
-	margin-left: auto;
-	font-family: "helvetica neue", helvetica, arial, sans-serif;
-	font-size: 1em;
-//	overflow: hidden;
-	margin-top: 0.5em;
+body, html {margin: 0em;padding: 0em;background-color: #ffffff;	font-size: 12px;line-height:18px;}
+sup {font-size: 0.6em;}p{margin: 0em;padding: 0em;}img {border:none;}ul {list-style-type: none;}
+li {color:#000033;}table {border:1px solid #333333;border-collapse:collapse;empty-cells:hide;margin-bottom:1.5em;margin-top:0.2em;width:99%;}
+table caption {font-size: 1.1em;font-weight: bold;text-align: center;background-color: #5F717F;padding: 0.1em;color: #FFFFFF;margin-top: 1em;margin:auto;border: 1px solid #4F4F4F;}
+table th {padding-left: 0.3em;text-align: left;margin:auto;border: 1px solid #4F4F4F;background-color: #CFCFCF;}
+table td {text-align:left;border: 1px solid #4F4F4F;padding: 0.3em;margin:auto;}
+#todo {margin-right: auto;margin-left: auto;font-family: "helvetica neue", helvetica, arial, sans-serif;font-size: 1em;margin-top: 0.5em;
 	background-color: #FFFFFF;
 	width: 98%;
 	padding:0 0 0.5em 0;
@@ -269,6 +209,8 @@ table td {
 </style>
 	</head>
 	<body>
+	<div id="todo">
+	<div id="cuerpo">
 		<xsl:variable name="formatofra">
 			<xsl:choose>
 				<xsl:when test="m:Facturae/FileHeader/SchemaVersion!=''">Facturae <xsl:value-of select="m:Facturae/FileHeader/SchemaVersion"/></xsl:when>
@@ -279,16 +221,23 @@ table td {
 		<xsl:if test="m:Facturae/FileHeader/SchemaVersion">
 			<xsl:apply-templates select="//m:Facturae"/>
 		</xsl:if>
-		<!--<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/es/"><img alt="Licencia de Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>-->
-<div id="pie"><p><xsl:value-of select="csv"/></p><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type">Visor Facturae</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.larioja.org" property="cc:attributionName" rel="cc:attributionURL">DGTIC</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/es/">Creative Commons Attribution-NonCommercial 3.0 Spain License</a>.</div>
+			<xsl:variable name="vcsv">
+				<xsl:value-of select="//csv"/>
+			</xsl:variable>
+		<div id="horizontal" style="font-size:11px;">
+			Este documento se ha almacenado en el repositorio de documentos del Gobierno de La Rioja con código seguro de verificación <span class="nombre"><xsl:value-of select="$vcsv"/></span> Dirección de verificación: http://www.larioja.org/verificacion
+		</div>
+	</div> <!-- cuerpo -->
+	</div> <!-- todo -->
+<div id="pie"><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type">Visor Facturae</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.larioja.org" property="cc:attributionName" rel="cc:attributionURL">DGTIC</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/es/">Creative Commons Attribution-NonCommercial 3.0 Spain License</a>.</div>
+
 	</body>
 </html>
 </xsl:template>
 <!-- ***********************************************PLANTILLA DE FACTURA*********************************************************************************-->
 <xsl:template match="m:Facturae">       
 
-<div id="todo">
-<div id="cuerpo">
+
 <!-- ***********************************************DATOS DE FIRMA*********************************************************************************-->
     <div id="horizontal">
 		<p class="titulo">Datos de firma </p>
@@ -423,7 +372,7 @@ table td {
     </div>		
 </xsl:if>
   </div>
-<!-- ***********************************************DATOS DE CESI�"N FACTORING*********************************************************************************-->
+<!-- ***********************************************DATOS DE CESIâN FACTORING*********************************************************************************-->
 <xsl:if test="FileHeader/FactoringAssignmentData!=&quot;&quot;">
     <div id="dcha">
 		<p class="titulo">Datos cesión factoring </p>
@@ -677,11 +626,6 @@ table td {
 </table>
 </div> <!-- pie de factura -->
 </div> <!-- este es el fin del bloque derecho. El pie de factura se incluye dentro para que quede alineado) -->
-</div> <!-- cuerpo -->
-
-
-</div> <!-- todo -->
-
 </xsl:template>
 <!-- ********************************************************************************************************************************-->
 <!--                                                BLOQUES REUTILIZABLES                                                            -->
@@ -976,6 +920,8 @@ table td {
 	<div id="mitad-dcha">
 		<div id="firma_digital"><p>Firma digital:</p><div class="cuadro_firma"><xsl:value-of select="ds:SignatureValue"/></div></div>
 	</div>
+</xsl:template>
+<xsl:template match="csv"> 
 </xsl:template>
 </xsl:stylesheet>
 
