@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="visorfacturae.xsl" type="text/xsl"?>
+<?xml-stylesheet href="visorfacturaecsv.xsl" type="text/xsl"?>
 <facturacsv>
 <factura>
 <m:Facturae xmlns:m="http://www.facturae.es/Facturae/2007/v3.1/Facturae" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.facturae.es/Facturae/2007/v3.1/Facturae http://www.facturae.es/es-ES/Documentacion/EsquemaFormato/Esquema%20Formato/Versi%C3%B3n%203_1/Facturaev31.xml">
