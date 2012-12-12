@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="#stylesheet" type="text/xsl"?>
-<!DOCTYPE doc [<!ATTLIST xsl:stylesheet id	ID	#REQUIRED>]>
-<m:Facturae xmlns:m="http://www.facturae.es/Facturae/2007/v3.1/Facturae" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.facturae.es/Facturae/2007/v3.1/Facturae C:/jjmontiel/workspace/eurobits/efactura3/efactura/resources/resources/MapForce/MapForce_FacturaE/UblToFacturaE/EsquemaOficialFacturae31.xsd">
+<?xml-stylesheet href="visorfacturae.xsl" type="text/xsl"?>
+<facturacsv>
+<factura>
+<m:Facturae xmlns:m="http://www.facturae.es/Facturae/2007/v3.1/Facturae" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.facturae.es/Facturae/2007/v3.1/Facturae http://www.facturae.es/es-ES/Documentacion/EsquemaFormato/Esquema%20Formato/Versi%C3%B3n%203_1/Facturaev31.xml">
 <FileHeader>
 <SchemaVersion>3.1</SchemaVersion>
 <Modality>I</Modality>
@@ -1276,3 +1277,8 @@ mctL1dNECxemGA==
 	</ds:Object>
 </ds:Signature>
 </m:Facturae>
+</factura>
+<csv>
+8949488569sdd84894
+</csv>
+</facturacsv>

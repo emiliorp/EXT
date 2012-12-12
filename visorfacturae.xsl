@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:m="http://www.facturae.es/Facturae/2007/v3.1/Facturae" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:tns="http://schemas.xmlsoap.org/soap/envelope/">
 <xsl:output method="html" indent="yes"/>
 <xsl:decimal-format grouping-separator="." decimal-separator=","/>
-<xsl:template match="/">  
+<xsl:template match="/facturacsv/factura">  
 <html>
 	<head>
 	<xsl:variable name="versionvisor"><xsl:text>0.92</xsl:text></xsl:variable>
@@ -267,8 +267,8 @@ table td {
 	margin:0.2em 0.2em 1em;
 }
 </style>
-
 	</head>
+	<body>
 		<xsl:variable name="formatofra">
 			<xsl:choose>
 				<xsl:when test="m:Facturae/FileHeader/SchemaVersion!=''">Facturae <xsl:value-of select="m:Facturae/FileHeader/SchemaVersion"/></xsl:when>
@@ -279,12 +279,17 @@ table td {
 		<xsl:if test="m:Facturae/FileHeader/SchemaVersion">
 			<xsl:apply-templates select="//m:Facturae"/>
 		</xsl:if>
-
+		<div>
+			<xsl:value-of select="csv"/>
+		</div>
+		<!--<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/es/"><img alt="Licencia de Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>-->
+<div id="pie"><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type">Visor Facturae</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.larioja.org" property="cc:attributionName" rel="cc:attributionURL">DGTIC</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/es/">Creative Commons Attribution-NonCommercial 3.0 Spain License</a>.</div>
+	</body>
 </html>
 </xsl:template>
 <!-- ***********************************************PLANTILLA DE FACTURA*********************************************************************************-->
 <xsl:template match="m:Facturae">       
-<body>
+
 <div id="todo">
 <div id="cuerpo">
 <!-- ***********************************************DATOS DE FIRMA*********************************************************************************-->
@@ -679,9 +684,7 @@ table td {
 
 
 </div> <!-- todo -->
-<!--<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/es/"><img alt="Licencia de Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>-->
-<div id="pie"><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type">Visor Facturae</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.larioja.org" property="cc:attributionName" rel="cc:attributionURL">DGTIC</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/es/">Creative Commons Attribution-NonCommercial 3.0 Spain License</a>.</div>
-</body>
+
 </xsl:template>
 <!-- ********************************************************************************************************************************-->
 <!--                                                BLOQUES REUTILIZABLES                                                            -->
