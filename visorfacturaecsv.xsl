@@ -36,8 +36,7 @@ table td {text-align:left;border: 1px solid #4F4F4F;padding: 0.3em;margin:auto;}
 	margin:0.2em 0.2em 1em;
 }
 #actores {
-	float:left;
-  clear:both;
+    float: left;
 }
 #izq {
 	-moz-border-radius-bottomleft:10px;
